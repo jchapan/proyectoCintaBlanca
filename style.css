@@ -1,0 +1,35 @@
+#section1 {padding-top:10px;}
+#section2 {padding-top:50px;}
+#section3 {padding-top:50px;}
+#section4 {padding-top:50px;}
+#section5 {padding-top:50px;}
+#section6 {padding-top:50px;}
+
+.linea {
+    background-color: #072b4f;
+    height: 50px;
+}
+
+.icono{
+    margin-left: 20px;
+    margin-top: 4px;
+    padding: 1px;
+    background-color: white;
+    color: #072b4f;
+}
+.logo {
+    height: 180px;
+    display: flex;
+    justify-content: center;
+}
+.logo img{
+    padding: 15px;
+    height: auto;
+}
+.menu a{
+    color: #6e6e6e;
+    font-size: 24px;
+}
+footer{
+    background-color: #072b4f;
+}
