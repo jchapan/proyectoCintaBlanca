@@ -42,7 +42,7 @@
               <a class="nav-link active" href="#section1">Home</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#section2">Gastos</a>
+              <a class="nav-link" href="#section2" onclick="extra()">Gastos</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="#section3">Ingresos</a>
@@ -138,8 +138,8 @@
           <div class="card">
             <div class="card-body">
           <h3>Tabla Gastos</h3>
-        <div class="container tablaGastos">       
-        <table class="table">
+        <div class="container">       
+        <table  class="table">
             <thead>
             <tr>
                 <th scope="col-sm-1">#</th>
@@ -149,28 +149,8 @@
                 <th scope="col-sm-2">Recurrencia</th>
             </tr>
             </thead>
-            <tbody>
-            <tr>
-                <th scope="row">1</th>
-                <td>Mark</td>
-                <td>Otto</td>
-                <td>@mdo</td>
-                <td>@mdo</td>
-            </tr>
-            <tr>
-                <th scope="row">2</th>
-                <td>Jacob</td>
-                <td>Thornton</td>
-                <td>@fat</td>
-                <td>@mdo</td>
-            </tr>
-            <tr>
-                <th scope="row">3</th>
-                <td>Larry</td>
-                <td>the Bird</td>
-                <td>@twitter</td>
-                <td>@mdo</td>
-            </tr>
+            <tbody id="tablaGastos">
+
             </tbody>
         </table>
         </div>
