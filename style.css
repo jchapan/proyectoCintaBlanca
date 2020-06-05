@@ -6,7 +6,7 @@
 #section6 {padding-top:50px;}
 
 .linea {
-    /*background-color: #072b4f;*/
+    background-color: #072b4f;
     height: 50px;
 }
 
@@ -28,7 +28,7 @@
 .menu a{
     color: #6e6e6e;
     font-size: 24px;
-    background-color: #072b4f
+    /*background-color: #072b4f;*/
 }
 .card{
     background-color: #F2F5F9;
