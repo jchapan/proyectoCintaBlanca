@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="icon" href="https://image.shutterstock.com/image-illustration/3d-man-dollar-symbol-260nw-100691149.jpg">
+    <link rel="icon" href="https://image.shutterstock.com/image-illustration/dollar-sign-isolated-3d-rendering-260nw-583209388.jpg">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" />
     <link rel="stylesheet" href="style.css">
@@ -57,27 +57,37 @@
               <a class="nav-link" href="#section6">Newsletter</a>
           </li>
           </ul>
+          <br><br>
         </div>
 
+        <!--Gastos-->
+
         <div class="container gastos" id="#section2">
-            <h2>Gastos</h2>
+            <div class="row">
+                <div class="col-lg-5 col-sm-12">
+                  <div class="card">
+                     <div class="card-body">
+            <h3>Gastos</h3>
             <form>
                 <div class="form-group row">
-                  <label for="inputEmail3" class="col-sm-2 col-form-label">Descripcion</label>
-                  <div class="col-sm-10">
+                  <label for="inputEmail3" class="col-lg-4 col-form-label">Descripcion</label>
+                  <div class="col-sm-8">
                     <input type="text" class="form-control" id="inputEmail3">
                   </div>
                 </div>
                 <div class="form-group row">
-                  <label for="inputPassword3" class="col-sm-2 col-form-label">Cantidad</label>
-                  <div class="col-sm-10">
-                    <input type="number" class="form-control" id="inputPassword3">
+                  <label for="inputPassword3" class="col-sm-6 col-form-label">Cantidad</label>
+                  <div class="input-group col-sm-6">
+                    <div class="input-group-prepend">
+                      <div class="input-group-text">$</div>
+                    </div>
+                    <input type="number" class="form-control" id="inlineFormInputGroupUsername" placeholder="">
                   </div>
                 </div>
                 <fieldset class="form-group">
                   <div class="row">
-                    <legend class="col-form-label col-sm-2 pt-0">Categoria</legend>
-                    <div class="col-sm-10">
+                    <legend class="col-form-label col-sm-6 pt-0">Categoria</legend>
+                    <div class="col-sm-6">
                       <div class="form-check">
                         <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="option1" checked>
                         <label class="form-check-label" for="gridRadios1">
@@ -117,16 +127,26 @@
                   </div>
                 </div>
               </form>
-        
+            </div>
+          </div>
+          <br>
+        </div>
+
+        <!--Tabla Gastos-->
+
+        <div class="col-lg-7 col-sm-12">
+          <div class="card">
+            <div class="card-body">
+          <h3>Tabla Gastos</h3>
         <div class="container tablaGastos">       
         <table class="table">
             <thead>
             <tr>
-                <th scope="col">#</th>
-                <th scope="col">Descripcion</th>
-                <th scope="col">Cantidad</th>
-                <th scope="col">Categoria</th>
-                <th scope="col">Recurrencia</th>
+                <th scope="col-sm-1">#</th>
+                <th scope="col-sm-4">Descripcion</th>
+                <th scope="col-sm-2">Cantidad</th>
+                <th scope="col-sm-3">Categoria</th>
+                <th scope="col-sm-2">Recurrencia</th>
             </tr>
             </thead>
             <tbody>
@@ -154,27 +174,42 @@
             </tbody>
         </table>
         </div>
+        <button type="submit" class="btn btn-primary">Imprimir</button>
         </div>
+      </div>
+    </div>
+  </div>
+</div>
 <br><br>
+
+          <!--Ingresos-->
+
         <div id="#section3" class="container ingresos">
-            <h2>Ingresos</h2>
+          <div class="row">
+            <div class="col-lg-5 col-sm-12">
+              <div class="card">
+                 <div class="card-body">
+            <h3>Ingresos</h3>
             <form>
                 <div class="form-group row">
-                  <label for="inputEmail3" class="col-sm-2 col-form-label">Descripcion</label>
-                  <div class="col-sm-10">
+                  <label for="inputEmail3" class="col-sm-4 col-form-label">Descripcion</label>
+                  <div class="col-sm-8">
                     <input type="text" class="form-control" id="inputEmail3">
                   </div>
                 </div>
                 <div class="form-group row">
-                  <label for="inputPassword3" class="col-sm-2 col-form-label">Cantidad</label>
-                  <div class="col-sm-10">
-                    <input type="number" class="form-control" id="inputPassword3">
+                  <label for="inputPassword3" class="col-sm-6 col-form-label">Cantidad</label>
+                  <div class="input-group col-sm-6">
+                    <div class="input-group-prepend">
+                      <div class="input-group-text">$</div>
+                    </div>
+                    <input type="number" class="form-control" id="inlineFormInputGroupUsername" placeholder="">
                   </div>
                 </div>
                 <fieldset class="form-group">
                   <div class="row">
-                    <legend class="col-form-label col-sm-2 pt-0">Categoria</legend>
-                    <div class="col-sm-10">
+                    <legend class="col-form-label col-sm-6 pt-0">Categoria</legend>
+                    <div class="col-sm-6">
                       <div class="form-check">
                         <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="option1" checked>
                         <label class="form-check-label" for="gridRadios1">
@@ -214,8 +249,18 @@
                   </div>
                 </div>
               </form>
-        
-        
+              </div>
+            </div>
+            <br>
+          </div>
+          
+  
+          <!--Tabla Ingresos-->
+  
+          <div class="col-lg-7 col-sm-12">
+            <div class="card">
+              <div class="card-body">
+                <h3>Tabla Ingresos</h3>
         <div class="container tablaIngresos">       
         <table class="table">
             <thead>
@@ -252,10 +297,21 @@
             </tbody>
         </table>
         </div>
+        <button type="submit" class="btn btn-primary">Imprimir</button>
         </div>
+            </div>
+          </div>
+          </div>
 <br><br>
+
+        <!--Balance-->
+
     <div class="container balance" id="#section4">
-        <h2>Balance</h2>
+      <div class="row">
+        <div class="col-sm-12">
+          <div class="card">
+             <div class="card-body">
+        <h3>Balance</h3>
         <table class="table">
             <thead>
             <tr>
@@ -294,10 +350,15 @@
             </tr>
             </tbody>
         </table>
+        <button type="submit" class="btn btn-primary">Imprimir</button>
         </div>
+          </div>
+        </div>
+      </div>
+    </div>
 <br><br>
         <div class="container miCuenta" id="#section5">
-            <h2>Mi Cuenta</h2>
+            <h3>Mi Cuenta</h3>
             <form>
                 <div class="form-row">
                   <div class="form-group col-md-6">
