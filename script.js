@@ -28,27 +28,57 @@ function extra(){
 var reg = 0
 var v = 0
 var desc = 0
+var cant = 0
 
-
-
-
-// function ciclo(v)    {
-
-//     for (var v = 0; v <= 5; v++) {
-
-// console.log(v);
 
 
 
 function reggas(reg)    {
-    if (reg == 1)   {
-        var desc = document.getElementById("descripcion");
-        // desc.innerHTML = ;
-            console.log("descripcion");
+
+   
+        console.log(v);
+        if (reg == 0) {}
+        a = v + 1
+        var desc = document.getElementById("descripcion").value;
+        var cant = document.getElementById("cantidad").value;
+        fila = `<tr><th> ${a}</th><td> ${desc}</td><td> ${cant}</td><td> `
+        var btn = document.createElement("TR");
+        btn.innerHTML=fila; 
+            console.log(a)
+            console.log(desc)
+            console.log(cant)
+            document.getElementById("tablaGastos").appendChild(btn);    
+
+        
+
+    }   
 
 
 
-    }
-}
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+// function reggas(reg)   {
+//     if (reg == 1)   
+//         var desc = document.getElementById("descripcion");
+//         // desc.innerHTML = ;
+//             console.log(desc);
+
+
+
 //     }
-// }
+//     }
+    
