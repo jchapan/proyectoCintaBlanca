@@ -24,3 +24,31 @@ function extra(){
         document.getElementById("tablaGastos").appendChild(btn);
     });
 }
+
+var reg = 0
+var v = 0
+var desc = 0
+
+
+
+
+// function ciclo(v)    {
+
+//     for (var v = 0; v <= 5; v++) {
+
+// console.log(v);
+
+
+
+function reggas(reg)    {
+    if (reg == 1)   {
+        var desc = document.getElementById("descripcion");
+        // desc.innerHTML = ;
+            console.log("descripcion");
+
+
+
+    }
+}
+//     }
+// }
