@@ -5,6 +5,14 @@
 #section5 {padding-top:50px;}
 #section6 {padding-top:50px;}
 
+#privado {
+    display: none;
+}
+
+#principal {
+    display: block;
+}
+
 .linea {
     background-color: #072b4f;
     height: 50px;

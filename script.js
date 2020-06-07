@@ -4,6 +4,13 @@ var fila
 var siguiente
 var total=0
 
+var user=0
+var pass=0
+var validUsers= ['jose', 'dany', 'eduardo']
+var validPass= ['1234', '4567', '5678']
+var x
+var y
+
 var gastos =[
     {id:1, desc:"Gas", cant:"1000", cat:"Servicios", rec:"Mensual"},
     {id:2, desc:"Colegiatura", cant:"20000", cat:"Colegiatura", rec:"Mensual"},
@@ -92,4 +99,20 @@ function balance(){
     txt = document.getElementById('totalBalance');
     txt.innerHTML = "$" + new Intl.NumberFormat("en-US").format(total);
     total=0
+}
+
+
+function revisaUser(){
+    user = document.getElementById('username').value;
+    console.log(user)
+    pass = document.getElementById('password').value;
+    console.log(pass)
+    if(user==0 || pass==0){
+        alert("Ingresa tu User y Pass");
+    } else if(validUsers.includes(user) && validPass.includes(pass)){
+        x = document.getElementById("privado");
+        x.style.display = "block";
+        y = document.getElementById("principal");
+        y.style.display = "none";
+    } else alert("User o Password Invalido")
 }

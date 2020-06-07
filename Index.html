@@ -53,13 +53,39 @@
             <li class="nav-item">
                 <a class="nav-link" href="#section5">Mi Cuenta</a>
             </li>
-            <li class="nav-item">
+            <!-- <li class="nav-item">
               <a class="nav-link" href="#section6">Newsletter</a>
-          </li>
+          </li> -->
+          <li class="nav-item">
+          <div class="btn-group">
+            <button type="button" class="btn btn-primary dropdown-toggle boton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Log In
+            </button>
+            <div class="dropdown-menu">
+                <form class="px-4 py-3">
+                    <div class="form-group">
+                        <form class="login">
+                            <div class="form-group">
+                              <label for="exampleInputEmail1">Email address</label>
+                              <input type="email" class="form-control" id="username">
+                            </div>
+                            <div class="form-group">
+                              <label for="exampleInputPassword1">Password</label>
+                              <input type="password" class="form-control" id="password">
+                            </div>
+                            <button type="submit" class="btn btn-primary" onclick="revisaUser()">Submit</button>
+                        </form>
+                    </div>
+              </div>
+           </div>
+        </li>
           </ul>
           <br><br>
         </div>
 
+
+
+      <div id="privado">
         <!--Gastos-->
 
         <div class="container gastos" id="section2">
@@ -339,6 +365,7 @@
                 <button type="submit" class="btn btn-primary">Actualizar</button>
               </form>
         </div>
+      </div>
         <footer id="section6">
 
 
