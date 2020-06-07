@@ -1,5 +1,5 @@
 #section1 {padding-top:10px;}
-#section2 {padding-top:50px;}
+#section2 {padding-top:70px;}
 #section3 {padding-top:50px;}
 #section4 {padding-top:50px;}
 #section5 {padding-top:50px;}
@@ -28,7 +28,6 @@
 .menu a{
     color: #6e6e6e;
     font-size: 24px;
-    /*background-color: #072b4f;*/
 }
 .card{
     background-color: #F2F5F9;

@@ -42,13 +42,13 @@
               <a class="nav-link active" href="#section1">Home</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#section2">Gastos</a>
+              <a class="nav-link" href="#section2" onclick="extraGasto()">Gastos</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#section3">Ingresos</a>
+              <a class="nav-link" href="#section3" onclick="extraIngreso()">Ingresos</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#section4">Balance</a>
+                <a class="nav-link" href="#section4" onclick="balance()">Balance</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="#section5">Mi Cuenta</a>
@@ -62,7 +62,7 @@
 
         <!--Gastos-->
 
-        <div class="container gastos" id="#section2">
+        <div class="container gastos" id="section2">
             <div class="row">
                 <div class="col-lg-5 col-sm-12">
                   <div class="card">
@@ -124,7 +124,7 @@
                 <div class="form-group row">
                   <div class="col-sm-10">
                     <button type="submit" class="btn btn-primary">Registrar</button>
-                    <button type="submit" class="btn btn-primary verTabla" onclick="extra()">Ver Tabla</button>
+                    <button type="submit" class="btn btn-primary verTabla" onclick="extraGasto()">Ver Tabla</button>
                   </div>
                 </div>
               </form>
@@ -156,6 +156,7 @@
         </table>
         </div>
         <button type="submit" class="btn btn-primary">Imprimir</button>
+        <p id="totalGasto"></p>
         </div>
       </div>
     </div>
@@ -164,16 +165,15 @@
 <br><br>
 
           <!--Ingresos-->
-
-        <div id="#section3" class="container ingresos">
-          <div class="row">
-            <div class="col-lg-5 col-sm-12">
-              <div class="card">
-                 <div class="card-body">
+          <div class="container Ingresos" id="section3">
+            <div class="row">
+                <div class="col-lg-5 col-sm-12">
+                  <div class="card">
+                     <div class="card-body">
             <h3>Ingresos</h3>
             <form>
                 <div class="form-group row">
-                  <label for="inputEmail3" class="col-sm-4 col-form-label">Descripcion</label>
+                  <label for="inputEmail3" class="col-lg-4 col-form-label">Descripcion</label>
                   <div class="col-sm-8">
                     <input type="text" class="form-control" id="inputEmail3">
                   </div>
@@ -194,7 +194,7 @@
                       <div class="form-check">
                         <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="option1" checked>
                         <label class="form-check-label" for="gridRadios1">
-                          Sueldo
+                          Sueldos
                         </label>
                       </div>
                       <div class="form-check">
@@ -227,68 +227,50 @@
                 <div class="form-group row">
                   <div class="col-sm-10">
                     <button type="submit" class="btn btn-primary">Registrar</button>
-                    <button type="submit" class="btn btn-primary verTabla">Ver Tabla</button>
+                    <button type="submit" class="btn btn-primary verTabla" onclick="extraIngreso()">Ver Tabla</button>
                   </div>
                 </div>
               </form>
-              </div>
             </div>
-            <br>
           </div>
-          
-  
-          <!--Tabla Ingresos-->
-  
-          <div class="col-lg-7 col-sm-12">
-            <div class="card">
-              <div class="card-body">
-                <h3>Tabla Ingresos</h3>
-        <div class="container tablaIngresos">       
-        <table class="table">
+          <br>
+        </div>
+
+        <!--Tabla Ingresos-->
+
+        <div class="col-lg-7 col-sm-12">
+          <div class="card">
+            <div class="card-body">
+          <h3>Tabla Ingresos</h3>
+        <div class="container">       
+        <table  class="table">
             <thead>
             <tr>
-                <th scope="col">#</th>
-                <th scope="col">Descripcion</th>
-                <th scope="col">Cantidad</th>
-                <th scope="col">Categoria</th>
-                <th scope="col">Recurrencia</th>
+                <th scope="col-sm-1">#</th>
+                <th scope="col-sm-4">Descripcion</th>
+                <th scope="col-sm-2">Cantidad</th>
+                <th scope="col-sm-3">Categoria</th>
+                <th scope="col-sm-2">Recurrencia</th>
             </tr>
             </thead>
-            <tbody>
-            <tr>
-                <th scope="row">1</th>
-                <td>Mark</td>
-                <td>Otto</td>
-                <td>@mdo</td>
-                <td>@mdo</td>
-            </tr>
-            <tr>
-                <th scope="row">2</th>
-                <td>Jacob</td>
-                <td>Thornton</td>
-                <td>@fat</td>
-                <td>@mdo</td>
-            </tr>
-            <tr>
-                <th scope="row">3</th>
-                <td>Larry</td>
-                <td>the Bird</td>
-                <td>@twitter</td>
-                <td>@mdo</td>
-            </tr>
+            <tbody id="tablaIngresos">
+
             </tbody>
         </table>
         </div>
         <button type="submit" class="btn btn-primary">Imprimir</button>
+        <p id="totalIngreso"></p>
         </div>
-            </div>
-          </div>
-          </div>
+      </div>
+    </div>
+  </div>
+</div>
+
 <br><br>
 
         <!--Balance-->
 
-    <div class="container balance" id="#section4">
+    <div class="container balance" id="section4">
       <div class="row">
         <div class="col-sm-12">
           <div class="card">
@@ -298,48 +280,25 @@
             <thead>
             <tr>
                 <th scope="col">#</th>
-                <th scope="col">Tipo</th>
                 <th scope="col">Descripcion</th>
                 <th scope="col">Cantidad</th>
                 <th scope="col">Categoria</th>
                 <th scope="col">Recurrencia</th>
             </tr>
             </thead>
-            <tbody>
-            <tr>
-                <th scope="row">1</th>
-                <td>Mark</td>
-                <td>Mark</td>
-                <td>Otto</td>
-                <td>@mdo</td>
-                <td>@mdo</td>
-            </tr>
-            <tr>
-                <th scope="row">2</th>
-                <td>Mark</td>
-                <td>Jacob</td>
-                <td>Thornton</td>
-                <td>@fat</td>
-                <td>@mdo</td>
-            </tr>
-            <tr>
-                <th scope="row">3</th>
-                <td>Mark</td>
-                <td>Larry</td>
-                <td>the Bird</td>
-                <td>@twitter</td>
-                <td>@mdo</td>
-            </tr>
+            <tbody id="tablaBalance">
+            
             </tbody>
         </table>
         <button type="submit" class="btn btn-primary">Imprimir</button>
+        <p id="totalBalance"></p>
         </div>
           </div>
         </div>
       </div>
     </div>
 <br><br>
-        <div class="container miCuenta" id="#section5">
+        <div class="container miCuenta" id="section5">
             <h3>Mi Cuenta</h3>
             <form>
                 <div class="form-row">
@@ -380,7 +339,7 @@
                 <button type="submit" class="btn btn-primary">Actualizar</button>
               </form>
         </div>
-        <footer id="#section6">
+        <footer id="section6">
 
 
         </footer>
