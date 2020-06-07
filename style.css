@@ -40,6 +40,9 @@ h3{
     width: 120px;
     background-color: #072b4f;
 }
+.verTabla{
+    float: right;
+}
 footer{
     background-color: #072b4f;
 }
