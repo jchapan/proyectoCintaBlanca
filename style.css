@@ -49,8 +49,14 @@
 .carousel-control-next-icon{
     background-color: #072b4f;
 }
-.card{
-    background-color: #F2F5F9;
+.cardGastos{
+    background-color: #FFB9B8;
+}
+.cardIngresos{
+    background-color: #CEFEC1;
+}
+.cardBalance{
+    background-color: navy;
 }
 h3{
     text-align: center;
