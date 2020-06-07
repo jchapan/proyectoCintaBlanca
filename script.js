@@ -11,6 +11,10 @@ var validPass= ['1234', '4567', '5678']
 var x
 var y
 
+var descripcion=0
+var cantidad=0
+var recurrencia 
+
 var gastos =[
     {id:1, desc:"Gas", cant:"1000", cat:"Servicios", rec:"Mensual"},
     {id:2, desc:"Colegiatura", cant:"20000", cat:"Colegiatura", rec:"Mensual"},
@@ -23,7 +27,7 @@ var ingresos =[
     {id:3, desc:"Asesoria", cant:"8000", cat:"Servicios", rec:"No recurrente"}
 ]
 
-function extraGasto(){
+function listaGasto(){
     gastos.forEach(i => {
         console.log(i);
         var a = i.id
@@ -44,7 +48,7 @@ function extraGasto(){
     total=0
 }
 
-function extraIngreso(){
+function listaIngreso(){
     ingresos.forEach(i => {
         console.log(i);
         var a = i.id
@@ -115,4 +119,15 @@ function revisaUser(){
         y = document.getElementById("principal");
         y.style.display = "none";
     } else alert("User o Password Invalido")
+}
+
+function extraGasto(){
+    descripcion = document.getElementById("descGasto").value;
+    cantidad = document.getElementById("cantGasto").value;
+    recurrencia = document.getElementById("inputGroupSelect01Gastos").value;
+    console.log(descripcion, cantidad, recurrencia)
+    var data = {id:gastos.length+1, desc:descripcion, cant:cantidad, cat:"Servicios", rec:recurrencia};
+    gastos.push(data);
+    console.log(data)
+    listaGasto()
 }

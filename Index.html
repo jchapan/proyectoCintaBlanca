@@ -66,10 +66,10 @@
               <a class="nav-link active" href="#section1">Home</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#section2" onclick="extraGasto()">Gastos</a>
+              <a class="nav-link" href="#section2" onclick="listaGasto()">Gastos</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#section3" onclick="extraIngreso()">Ingresos</a>
+              <a class="nav-link" href="#section3" onclick="listaIngreso()">Ingresos</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="#section4" onclick="balance()">Balance</a>
@@ -86,6 +86,7 @@
         </div>
 
         <!-- Principal -->
+        <div id="principal">
         <div class="container">
           <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
             <div class="carousel-inner">
@@ -110,6 +111,7 @@
           </div>
 
         </div>
+      </div>
 
 
 
@@ -121,12 +123,12 @@
                 <div class="col-lg-5 col-sm-12">
                   <div class="card cardGastos">
                      <div class="card-body">
-            <h3>Gastos</h3>
+            <h3>Nuevo Gasto</h3>
             <form>
                 <div class="form-group row">
                   <label for="inputEmail3" class="col-lg-4 col-form-label">Descripcion</label>
                   <div class="col-sm-8">
-                    <input type="text" class="form-control" id="inputEmail3">
+                    <input type="text" class="form-control" id="descGasto">
                   </div>
                 </div>
                 <div class="form-group row">
@@ -135,7 +137,7 @@
                     <div class="input-group-prepend">
                       <div class="input-group-text">$</div>
                     </div>
-                    <input type="number" class="form-control" id="inlineFormInputGroupUsername" placeholder="">
+                    <input type="number" class="form-control" id="cantGasto" placeholder="">
                   </div>
                 </div>
                 <fieldset class="form-group">
@@ -143,19 +145,19 @@
                     <legend class="col-form-label col-sm-6 pt-0">Categoria</legend>
                     <div class="col-sm-6">
                       <div class="form-check">
-                        <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="option1" checked>
+                        <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="Consumos" checked>
                         <label class="form-check-label" for="gridRadios1">
                           Consumos
                         </label>
                       </div>
                       <div class="form-check">
-                        <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="option2">
+                        <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="Servicios">
                         <label class="form-check-label" for="gridRadios2">
                           Servicios
                         </label>
                       </div>
                       <div class="form-check">
-                        <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios3" value="option3">
+                        <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios3" value="Colegiatura">
                         <label class="form-check-label" for="gridRadios3">
                           Colegiatura
                         </label>
@@ -165,20 +167,20 @@
                 </fieldset>
                 <div class="input-group mb-3">
                     <div class="input-group-prepend">
-                      <label class="input-group-text" for="inputGroupSelect01">Recurrencia</label>
+                      <label class="input-group-text" for="inputGroupSelect01Gastos">Recurrencia</label>
                     </div>
-                    <select class="custom-select" id="inputGroupSelect01">
-                      <option selected>No recurrente</option>
-                      <option value="1">Semanal</option>
-                      <option value="2">Quincenal</option>
-                      <option value="3">Mensual</option>
+                    <select class="custom-select" id="inputGroupSelect01Gastos">
+                      <option selected value="No recurrente">No recurrente</option>
+                      <option value="Semanal">Semanal</option>
+                      <option value="Quincenal">Quincenal</option>
+                      <option value="Mensual">Mensual</option>
                     </select>
                   </div>
               <br>
                 <div class="form-group row">
                   <div class="col-sm-10">
-                    <button type="submit" class="btn btn-primary">Registrar</button>
-                    <button type="submit" class="btn btn-primary verTabla" onclick="extraGasto()">Ver Tabla</button>
+                    <button type="submit" class="btn btn-primary" onclick="extraGasto()">Registrar</button>
+                    <!-- <button type="submit" class="btn btn-primary verTabla" onclick="listaGasto()">Ver Tabla</button> -->
                   </div>
                 </div>
               </form>
@@ -192,7 +194,7 @@
         <div class="col-lg-7 col-sm-12">
           <div class="card cardGastos">
             <div class="card-body">
-          <h3>Tabla Gastos</h3>
+          <h3>Gastos</h3>
         <div class="container">       
         <table  class="table">
             <thead>
@@ -209,8 +211,8 @@
             </tbody>
         </table>
         </div>
-        <button type="submit" class="btn btn-primary">Imprimir</button>
-        <p id="totalGasto"></p>
+        <button type="submit" class="btn btn-primary botonImprimir">Imprimir</button>
+        <p id="totalGasto" class="total"></p>
         </div>
       </div>
     </div>
@@ -224,7 +226,7 @@
                 <div class="col-lg-5 col-sm-12">
                   <div class="card cardIngresos">
                      <div class="card-body">
-            <h3>Ingresos</h3>
+            <h3>Nuevo Ingreso</h3>
             <form>
                 <div class="form-group row">
                   <label for="inputEmail3" class="col-lg-4 col-form-label">Descripcion</label>
@@ -280,8 +282,8 @@
               <br>
                 <div class="form-group row">
                   <div class="col-sm-10">
-                    <button type="submit" class="btn btn-primary">Registrar</button>
-                    <button type="submit" class="btn btn-primary verTabla" onclick="extraIngreso()">Ver Tabla</button>
+                    <button type="submit" class="btn btn-primary" onclick="extraIngreso()">Registrar</button>
+                    <!-- <button type="submit" class="btn btn-primary verTabla" onclick="listaIngreso()">Ver Tabla</button> -->
                   </div>
                 </div>
               </form>
@@ -295,7 +297,7 @@
         <div class="col-lg-7 col-sm-12">
           <div class="card cardIngresos">
             <div class="card-body">
-          <h3>Tabla Ingresos</h3>
+          <h3>Ingresos</h3>
         <div class="container">       
         <table  class="table">
             <thead>
@@ -312,8 +314,8 @@
             </tbody>
         </table>
         </div>
-        <button type="submit" class="btn btn-primary">Imprimir</button>
-        <p id="totalIngreso"></p>
+        <button type="submit" class="btn btn-primary botonImprimir">Imprimir</button>
+        <p id="totalIngreso"  class="total"></p>
         </div>
       </div>
     </div>
@@ -327,7 +329,7 @@
     <div class="container balance" id="section4">
       <div class="row">
         <div class="col-sm-12">
-          <div class="card">
+          <div class="card cardBalance">
              <div class="card-body">
         <h3>Balance</h3>
         <table class="table">
@@ -344,8 +346,8 @@
             
             </tbody>
         </table>
-        <button type="submit" class="btn btn-primary">Imprimir</button>
-        <p id="totalBalance"></p>
+        <button type="submit" class="btn btn-primary botonImprimir">Imprimir</button>
+        <p id="totalBalance" class="totalBalance"></p>
         </div>
           </div>
         </div>

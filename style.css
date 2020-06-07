@@ -6,11 +6,11 @@
 #section6 {padding-top:50px;}
 
 #privado {
-    display: none;
+    display: block;
 }
 
 #principal {
-    display: block;
+    display: none;
 }
 
 .linea {
@@ -56,10 +56,19 @@
     background-color: #CEFEC1;
 }
 .cardBalance{
-    background-color: navy;
+    background-color: #a1cbff;
 }
 h3{
     text-align: center;
+}
+.botonImprimir{
+    float: right;
+}
+.total {
+    padding-left: 200px;
+}
+.totalBalance {
+    padding-left: 350px;
 }
 .btn-primary{
     width: 120px;
