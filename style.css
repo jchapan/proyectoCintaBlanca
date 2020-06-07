@@ -29,6 +29,15 @@
     color: #6e6e6e;
     font-size: 24px;
 }
+.carousel-item{
+    max-width: 800px;
+}
+.carousel-control-prev-icon{
+    background-color: #072b4f;
+}
+.carousel-control-next-icon{
+    background-color: #072b4f;
+}
 .card{
     background-color: #F2F5F9;
 }
