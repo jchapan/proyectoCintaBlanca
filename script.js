@@ -247,14 +247,27 @@ function extraGasto(){
     cantidad = document.getElementById("cantGasto").value;
     recurrencia = document.getElementById("inputGroupSelect01Gastos").value;
     console.log(descripcion, cantidad, recurrencia)
+
+    if(document.getElementById("gridRadios1Gastos").checked){
+        var categoriaGastos="Consumos"
+    }
+
+    if(document.getElementById("gridRadios2Gastos").checked){
+        var categoriaGastos="Servicios"
+    }
+
+    if(document.getElementById("gridRadios3Gastos").checked){
+        var categoriaGastos="Colegiatura"
+    }
+    
     if(descripcion!=0 && cantidad!=0){
     var idGasto=gastos.length+1
-    var data = {id:idGasto, desc:descripcion, cant:cantidad, cat:"Servicios", rec:recurrencia};
+    var data = {id:idGasto, desc:descripcion, cant:cantidad, cat:categoriaGastos, rec:recurrencia};
     gastos.push(data);
     console.log(data)
     var neg = parseInt(cantidad*-1)
     var c = "$" + new Intl.NumberFormat("en-US").format(neg)
-    fila = `<tr><th> ${idGasto}</th><td> ${descripcion}</td><td> ${c}</td><td>Servicios</td><td> ${recurrencia}</td></tr>`
+    fila = `<tr><th> ${idGasto}</th><td> ${descripcion}</td><td> ${c}</td><td>${categoriaGastos}</td><td> ${recurrencia}</td></tr>`
     var btn = document.createElement("TR");
     btn.innerHTML=fila;        
     document.getElementById("tablaGastos").appendChild(btn);
@@ -270,14 +283,27 @@ function extraIngreso(){
     cantidad = document.getElementById("cantIngreso").value;
     recurrencia = document.getElementById("inputGroupSelect01Ingresos").value;
     console.log(descripcion, cantidad, recurrencia)
+
+    if(document.getElementById("gridRadios1Ingresos").checked){
+        var categoriaIngresos="Sueldos"
+    }
+
+    if(document.getElementById("gridRadios2Ingresos").checked){
+        var categoriaIngresos="Servicios"
+    }
+
+    if(document.getElementById("gridRadios3Ingresos").checked){
+        var categoriaIngresos="Comisiones"
+    }
+
     if(descripcion!=0 && cantidad!=0){
     var idIng=ingresos.length+1
-    var data = {id:idIng, desc:descripcion, cant:cantidad, cat:"Comisiones", rec:recurrencia};
+    var data = {id:idIng, desc:descripcion, cant:cantidad, cat:categoriaIngresos, rec:recurrencia};
     ingresos.push(data);
     console.log(data)
     var pos = parseInt(cantidad)
     var cc = "$" + new Intl.NumberFormat("en-US").format(pos)
-    fila = `<tr><th> ${idIng}</th><td> ${descripcion}</td><td> ${cc}</td><td>Servicios</td><td> ${recurrencia}</td></tr>`
+    fila = `<tr><th> ${idIng}</th><td> ${descripcion}</td><td> ${cc}</td><td> ${categoriaIngresos}</td><td> ${recurrencia}</td></tr>`
     var btn = document.createElement("TR");
     btn.innerHTML=fila;        
     document.getElementById("tablaIngresos").appendChild(btn);
