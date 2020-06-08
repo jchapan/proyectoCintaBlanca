@@ -3,6 +3,9 @@ var txt
 var fila
 var siguiente
 var total=0
+var totalIngresos=0
+var totalGastos =0
+var totalIng =0
 
 var user=0
 var pass=0
@@ -10,6 +13,7 @@ var validUsers= ['jose', 'dany', 'eduardo']
 var validPass= ['1234', '4567', '5678']
 var x
 var y
+var h=0
 
 var descripcion=0
 var cantidad=0
@@ -38,82 +42,106 @@ var ingresos =[
     {id:3, desc:"Asesoria", cant:"8000", cat:"Servicios", rec:"No recurrente"}
 ]
 
+var contador=0
 function listaGasto(){
-    gastos.forEach(i => {
+    console.log(contador)
+    if (contador == 0) {
+        gastos.forEach(i => {
         console.log(i);
-        var a = i.id
+        var a1 = i.id
         var b = i.desc
         var neg = parseInt(i.cant*-1)
         var c = "$" + new Intl.NumberFormat("en-US").format(neg)
         var d = i.cat
         var e = i.rec
-        console.log(a, b, c, d, e)
-        fila = `<tr><th> ${a}</th><td> ${b}</td><td> ${c}</td><td> ${d}</td><td> ${e}</td></tr>`
+        console.log(a1, b, c, d, e)
+        fila = `<tr><th> ${a1}</th><td> ${b}</td><td> ${c}</td><td> ${d}</td><td> ${e}</td></tr>`
         var btn = document.createElement("TR");
         btn.innerHTML=fila;        
         document.getElementById("tablaGastos").appendChild(btn);
         total = total+neg
         txt = document.getElementById('totalGasto');
         txt.innerHTML = "$" + new Intl.NumberFormat("en-US").format(total);
-    });
-    total=0
+    })
+        contador=contador+1
+    }
 }
 
+var contadorIngresos=0
+
 function listaIngreso(){
+    if (contadorIngresos == 0) {
     ingresos.forEach(i => {
         console.log(i);
-        var a = i.id
+        var a2 = i.id
         var b = i.desc
         var pos = parseInt(i.cant)
         var c = "$" + new Intl.NumberFormat("en-US").format(pos)
         var d = i.cat
         var e = i.rec
-        console.log(a, b, c, d, e)
-        fila = `<tr><th> ${a}</th><td> ${b}</td><td> ${c}</td><td> ${d}</td><td> ${e}</td></tr>`
+        console.log(a2, b, c, d, e)
+        fila = `<tr><th> ${a2}</th><td> ${b}</td><td> ${c}</td><td> ${d}</td><td> ${e}</td></tr>`
         var btn = document.createElement("TR");
         btn.innerHTML=fila;        
         document.getElementById("tablaIngresos").appendChild(btn);
-        total = total+pos
+        totalIngresos = totalIngresos+pos
         txt = document.getElementById('totalIngreso');
-        txt.innerHTML = "$" + new Intl.NumberFormat("en-US").format(total);
+        txt.innerHTML = "$" + new Intl.NumberFormat("en-US").format(totalIngresos);
     });
-    total=0
+    contadorIngresos=contadorIngresos+1
+}
 }
 
+var contadorBalance=0
+
 function balance(){
+
+    if(contadorBalance==0){
     ingresos.forEach(i => {
         console.log(i);
-        var a = i.id
+        var a3 = i.id
         var b = i.desc
         var pos = parseInt(i.cant)
         var c = "$" + new Intl.NumberFormat("en-US").format(pos)
         var d = i.cat
         var e = i.rec
-        console.log(a, b, c, d, e)
-        fila = `<tr><th> ${a}</th><td> ${b}</td><td> ${c}</td><td> ${d}</td><td> ${e}</td></tr>`
+        console.log(a3, b, c, d, e)
+        fila = `<tr><th> ${a3}</th><td> ${b}</td><td> ${c}</td><td> ${d}</td><td> ${e}</td></tr>`
         var btn = document.createElement("TR");
         btn.innerHTML=fila;        
         document.getElementById("tablaBalance").appendChild(btn);
-        total = total+pos
+        totalIng = totalIng+pos
+        return totalIng
     });
+    
+    var a4 = ingresos.length+1
+
     gastos.forEach(i => {
         console.log(i);
-        var a = i.id
         var b = i.desc
         var neg = parseInt(i.cant*-1)
         var c = "$" + new Intl.NumberFormat("en-US").format(neg)
         var d = i.cat
         var e = i.rec
-        console.log(a, b, c, d, e)
-        fila = `<tr><th> ${a}</th><td> ${b}</td><td> ${c}</td><td> ${d}</td><td> ${e}</td></tr>`
+        // console.log(a4, b, c, d, e)
+        fila = `<tr><th> ${a4}</th><td> ${b}</td><td> ${c}</td><td> ${d}</td><td> ${e}</td></tr>`
         var btn = document.createElement("TR");
         btn.innerHTML=fila;        
         document.getElementById("tablaBalance").appendChild(btn);
-        total = total+neg
+        totalGastos = totalGastos+(i.cant*-1)
+        a4=a4+1
+        return totalGastos
     });
+    console.log(totalIng,totalGastos);
+    var totalFinal=totalIng+totalGastos
+    console.log(totalFinal);
     txt = document.getElementById('totalBalance');
-    txt.innerHTML = "$" + new Intl.NumberFormat("en-US").format(total);
-    total=0
+    txt.innerHTML = "$" + new Intl.NumberFormat("en-US").format(totalFinal);
+    totalIng=0
+    totalGastos=0
+    totalFinal=0
+    contadorBalance=contadorBalance+1
+}
 }
 
 
@@ -220,10 +248,19 @@ function extraGasto(){
     recurrencia = document.getElementById("inputGroupSelect01Gastos").value;
     console.log(descripcion, cantidad, recurrencia)
     if(descripcion!=0 && cantidad!=0){
-    var data = {id:gastos.length+1, desc:descripcion, cant:cantidad, cat:"Servicios", rec:recurrencia};
+    var idGasto=gastos.length+1
+    var data = {id:idGasto, desc:descripcion, cant:cantidad, cat:"Servicios", rec:recurrencia};
     gastos.push(data);
     console.log(data)
-    listaGasto()
+    var neg = parseInt(cantidad*-1)
+    var c = "$" + new Intl.NumberFormat("en-US").format(neg)
+    fila = `<tr><th> ${idGasto}</th><td> ${descripcion}</td><td> ${c}</td><td>Servicios</td><td> ${recurrencia}</td></tr>`
+    var btn = document.createElement("TR");
+    btn.innerHTML=fila;        
+    document.getElementById("tablaGastos").appendChild(btn);
+    total = total+neg
+    txt = document.getElementById('totalGasto');
+    txt.innerHTML = "$" + new Intl.NumberFormat("en-US").format(total);
     generaGraficGastos()
     }else alert("Por favor ingresa los datos completos")
 }
@@ -234,10 +271,19 @@ function extraIngreso(){
     recurrencia = document.getElementById("inputGroupSelect01Ingresos").value;
     console.log(descripcion, cantidad, recurrencia)
     if(descripcion!=0 && cantidad!=0){
-    var data = {id:ingresos.length+1, desc:descripcion, cant:cantidad, cat:"Comisiones", rec:recurrencia};
+    var idIng=ingresos.length+1
+    var data = {id:idIng, desc:descripcion, cant:cantidad, cat:"Comisiones", rec:recurrencia};
     ingresos.push(data);
     console.log(data)
-    listaIngreso()
+    var pos = parseInt(cantidad)
+    var cc = "$" + new Intl.NumberFormat("en-US").format(pos)
+    fila = `<tr><th> ${idIng}</th><td> ${descripcion}</td><td> ${cc}</td><td>Servicios</td><td> ${recurrencia}</td></tr>`
+    var btn = document.createElement("TR");
+    btn.innerHTML=fila;        
+    document.getElementById("tablaIngresos").appendChild(btn);
+    totalIngresos = totalIngresos+pos
+    txt = document.getElementById('totalIngreso');
+    txt.innerHTML = "$" + new Intl.NumberFormat("en-US").format(totalIngresos);
     generaGraficIngresos()
     }else alert("Por favor ingresa los datos completos")
 }
@@ -324,7 +370,7 @@ function generaGraficIngresos(){
     pieSeries.dataFields.category = "desc";
     pieSeries.innerRadius = am4core.percent(50);
     pieSeries.ticks.template.disabled = true;
-    // pieSeries.labels.template.disabled = false;
+    pieSeries.labels.template.disabled = false;
     
     var rgm = new am4core.RadialGradientModifier();
     rgm.brightnesses.push(-0.8, -0.8, -0.5, 0, - 0.5);
