@@ -18,7 +18,20 @@ var recurrencia=0
 var gastos =[
     {id:1, desc:"Gas", cant:"1000", cat:"Servicios", rec:"Mensual"},
     {id:2, desc:"Colegiatura", cant:"20000", cat:"Colegiatura", rec:"Mensual"},
-    {id:3, desc:"Super", cant:"2000", cat:"Consumos", rec:"Semanal"}
+    {id:3, desc:"Super", cant:"2000", cat:"Consumos", rec:"Semanal"},
+    {id:3, desc:"Luz", cant:"2000", cat:"Servicios", rec:"Mensual"}
+]
+
+var graficaGastos =[
+    {cant:"3000", cat:"Servicios"},
+    {cant:"20000", cat:"Colegiatura"},
+    {cant:"8000", cat:"Consumos"},
+]
+
+var graficaIngresos =[
+    {cant:"8000", cat:"Servicios"},
+    {cant:"50000", cat:"Sueldos"},
+    {cant:"100000", cat:"Comisiones"},
 ]
 
 var ingresos =[
@@ -133,3 +146,59 @@ function extraGasto(){
     listaGasto()
     }else alert("Por favor ingresa los datos completos")
 }
+
+  am4core.ready(function() {
+  
+  // Themes begin
+  am4core.useTheme(am4themes_frozen);
+  am4core.useTheme(am4themes_animated);
+  // Themes end
+  
+  // Create chart instance
+  var chart = am4core.create("chartdivGastos", am4charts.PieChart);
+  
+  // Add data
+  chart.data = graficaGastos;
+  
+  // Add and configure Series
+  var pieSeries = chart.series.push(new am4charts.PieSeries());
+  pieSeries.dataFields.value = "cant";
+  pieSeries.dataFields.category = "cat";
+  pieSeries.slices.template.stroke = am4core.color("#fff");
+  pieSeries.slices.template.strokeWidth = 2;
+  pieSeries.slices.template.strokeOpacity = 1;
+  
+  // This creates initial animation
+  pieSeries.hiddenState.properties.opacity = 1;
+  pieSeries.hiddenState.properties.endAngle = -90;
+  pieSeries.hiddenState.properties.startAngle = -90;
+  
+  }); // end am4core.ready()
+
+  am4core.ready(function() {
+  
+    // Themes begin
+    am4core.useTheme(am4themes_frozen);
+    am4core.useTheme(am4themes_animated);
+    // Themes end
+    
+    // Create chart instance
+    var chart = am4core.create("chartdivIngresos", am4charts.PieChart);
+    
+    // Add data
+    chart.data = graficaIngresos;
+    
+    // Add and configure Series
+    var pieSeries = chart.series.push(new am4charts.PieSeries());
+    pieSeries.dataFields.value = "cant";
+    pieSeries.dataFields.category = "cat";
+    pieSeries.slices.template.stroke = am4core.color("#fff");
+    pieSeries.slices.template.strokeWidth = 2;
+    pieSeries.slices.template.strokeOpacity = 1;
+    
+    // This creates initial animation
+    pieSeries.hiddenState.properties.opacity = 1;
+    pieSeries.hiddenState.properties.endAngle = -90;
+    pieSeries.hiddenState.properties.startAngle = -90;
+    
+    }); // end am4core.ready()
