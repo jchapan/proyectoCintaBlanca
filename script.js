@@ -13,7 +13,7 @@ var y
 
 var descripcion=0
 var cantidad=0
-var recurrencia 
+var recurrencia=0
 
 var gastos =[
     {id:1, desc:"Gas", cant:"1000", cat:"Servicios", rec:"Mensual"},
@@ -126,8 +126,10 @@ function extraGasto(){
     cantidad = document.getElementById("cantGasto").value;
     recurrencia = document.getElementById("inputGroupSelect01Gastos").value;
     console.log(descripcion, cantidad, recurrencia)
+    if(descripcion!=0 && cantidad!=0){
     var data = {id:gastos.length+1, desc:descripcion, cant:cantidad, cat:"Servicios", rec:recurrencia};
     gastos.push(data);
     console.log(data)
     listaGasto()
+    }else alert("Por favor ingresa los datos completos")
 }
