@@ -136,127 +136,84 @@ function revisaUser(){
     } else alert("User o Password Invalido")
 }
 
-<<<<<<< HEAD
-var reg = 0
-var v = 0
-var desc = 0
-var cant = 0
-var cate = 0
-var recu = 0
-var a = 0
+// var reg = 0
+// var v = 0
+// var desc = 0
+// var cant = 0
+// var cate = 0
+// var recu = 0
+// var a = 0
 
 
 
 
-function extraGasto(reg)    {
+// function extraGasto(reg)    {
 
    
-        console.log(v);
-        if (reg == 0) {}
-        a = v + 1
-        var desc = document.getElementById("descGasto").value;
-        var cant = document.getElementById("cantGasto").value;
-        // var cate = document.getElementById("tipodegasto").value;
-        var recu = document.getElementById("inputGroupSelect01Gastos").value;
-        // var cant = document.getElementById("gridRadios").value;
-        // var cant = document.getElementById("recurrencia").value;
-        fila = `<tr><th> ${a}</th><td> ${desc}</td><td> ${cant}</td><td><td> ${cate}</td><td><td>${recu}</td><td> `
-        var btn = document.createElement("TR");
-        btn.innerHTML=fila; 
-            console.log(a)
-            console.log(desc)
-            console.log(cant)
-            console.log(cate)
-            console.log(recu)
+//         console.log(v);
+//         if (reg == 0) {}
+//         a = v + 1
+//         var desc = document.getElementById("descGasto").value;
+//         var cant = document.getElementById("cantGasto").value;
+//         // var cate = document.getElementById("tipodegasto").value;
+//         var recu = document.getElementById("inputGroupSelect01Gastos").value;
+//         // var cant = document.getElementById("gridRadios").value;
+//         // var cant = document.getElementById("recurrencia").value;
+//         fila = `<tr><th> ${a}</th><td> ${desc}</td><td> ${cant}</td><td><td> ${cate}</td><td><td>${recu}</td><td> `
+//         var btn = document.createElement("TR");
+//         btn.innerHTML=fila; 
+//             console.log(a)
+//             console.log(desc)
+//             console.log(cant)
+//             console.log(cate)
+//             console.log(recu)
 
-            document.getElementById("tablaGastos").appendChild(btn);    
+//             document.getElementById("tablaGastos").appendChild(btn);    
 
         
 
-    }   
+//     }   
 
 
-    var regI = 0
-    var w = 0
-    var descI = 0
-    var cantI = 0
-    var cateI = 0
-    var recuI = 0
-    var b = 0    
+//     var regI = 0
+//     var w = 0
+//     var descI = 0
+//     var cantI = 0
+//     var cateI = 0
+//     var recuI = 0
+//     var b = 0    
 
 
 
 
-    function extraIngreso(regI)    {
+//     function extraIngreso(regI)    {
 
    
-        console.log(v);
-        if (regI == 0) {}
-        b = w + 1;
-        var descI = document.getElementById("descGasto").value;
-        var cantI = document.getElementById("cantGasto").value;
-        // var cateI = document.getElementById("tipodeingreso").value;
-        var recuI = document.getElementById("inputGroupSelect01Ingresos").value;
-        // var cantI = document.getElementById("gridRadios").value;
-        // var cantI = document.getElementById("recurrencia").value;
-        fila = `<tr><th> ${a}</th><td> ${desc}</td><td> ${cant}</td><td><td> ${cate}</td><td><td>${recu}</td><td> `
-        var btn = document.createElement("TR");
-        btn.innerHTML=fila; 
-            console.log(a)
-            console.log(desc)
-            console.log(cant)
-            console.log(cate)
-            console.log(recu)
+//         console.log(v);
+//         if (regI == 0) {}
+//         b = w + 1;
+//         var descI = document.getElementById("descGasto").value;
+//         var cantI = document.getElementById("cantGasto").value;
+//         // var cateI = document.getElementById("tipodeingreso").value;
+//         var recuI = document.getElementById("inputGroupSelect01Ingresos").value;
+//         // var cantI = document.getElementById("gridRadios").value;
+//         // var cantI = document.getElementById("recurrencia").value;
+//         fila = `<tr><th> ${a}</th><td> ${desc}</td><td> ${cant}</td><td><td> ${cate}</td><td><td>${recu}</td><td> `
+//         var btn = document.createElement("TR");
+//         btn.innerHTML=fila; 
+//             console.log(a)
+//             console.log(desc)
+//             console.log(cant)
+//             console.log(cate)
+//             console.log(recu)
 
-            document.getElementById("tablaIngreso").appendChild(btn);    
+//             document.getElementById("tablaIngreso").appendChild(btn);    
 
         
 
-    }   
+//     }   
 
 
-
-
-
-
-
-
-
-
-
-
-
-  
-
-
-
-
-
-
-// function reggas(reg)   {
-//     if (reg == 1)   
-//         var desc = document.getElementById("descripcion");
-//         // desc.innerHTML = ;
-//             console.log(desc);
-
-
-
-//     }
-//     }
-    
-// function extraGasto(){
-//     descripcion = document.getElementById("descGasto").value;
-//     cantidad = document.getElementById("cantGasto").value;
-//     recurrencia = document.getElementById("inputGroupSelect01Gastos").value;
-//     console.log(descripcion, cantidad, recurrencia)
-//     if(descripcion!=0 && cantidad!=0){
-//     var data = {id:gastos.length+1, desc:descripcion, cant:cantidad, cat:"Servicios", rec:recurrencia};
-//     gastos.push(data);
-//     console.log(data)
-//     listaGasto()
-//     }else alert("Por favor ingresa los datos completos")
-// }
-=======
 function extraGasto(){
     descripcion = document.getElementById("descGasto").value;
     cantidad = document.getElementById("cantGasto").value;
@@ -270,7 +227,6 @@ function extraGasto(){
     generaGraficGastos()
     }else alert("Por favor ingresa los datos completos")
 }
->>>>>>> 949913a1abb8052423a6c1d1162af63c0e64123d
 
 function extraIngreso(){
     descripcion = document.getElementById("descIngreso").value;
@@ -368,7 +324,7 @@ function generaGraficIngresos(){
     pieSeries.dataFields.category = "desc";
     pieSeries.innerRadius = am4core.percent(50);
     pieSeries.ticks.template.disabled = true;
-    pieSeries.labels.template.disabled = false;
+    // pieSeries.labels.template.disabled = false;
     
     var rgm = new am4core.RadialGradientModifier();
     rgm.brightnesses.push(-0.8, -0.8, -0.5, 0, - 0.5);

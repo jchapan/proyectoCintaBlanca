@@ -6,11 +6,11 @@
 #section6 {padding-top:50px;}
 
 #privado {
-    display: none;
+    display: block;
 }
 
 #principal {
-    display: block;
+    display: none;
 }
 
 .linea {
@@ -81,6 +81,7 @@ h3{
 #chartdivGastos {
     width: 100%;
     height: 500px;
+    background-color: black; 
   }
 .chartdivGastos {
     display: none;
@@ -89,6 +90,7 @@ h3{
 #chartdivIngresos {
     width: 100%;
     height: 500px;
+    background-color: black;
 }
 .chartdivIngresos {
     display: none;
@@ -97,6 +99,7 @@ h3{
 #chartdivBalance {
     width: 100%;
     height: 500px;
+    background-color: black; 
 }
 .chartdivBalance {
     display: none;
