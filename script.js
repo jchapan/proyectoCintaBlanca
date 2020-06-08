@@ -147,6 +147,9 @@ function extraGasto(){
     }else alert("Por favor ingresa los datos completos")
 }
 
+function generaGraficGastos(){
+    x = document.getElementById("chartdivGastos");
+    x.style.display = "block";
   am4core.ready(function() {
   
   // Themes begin
@@ -174,6 +177,7 @@ function extraGasto(){
   pieSeries.hiddenState.properties.startAngle = -90;
   
   }); // end am4core.ready()
+}
 
   am4core.ready(function() {
   
