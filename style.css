@@ -6,11 +6,11 @@
 #section6 {padding-top:50px;}
 
 #privado {
-    display: block;
+    display: none;
 }
 
 #principal {
-    display: none;
+    display: block;
 }
 
 .linea {

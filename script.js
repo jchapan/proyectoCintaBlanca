@@ -129,6 +129,10 @@ function revisaUser(){
         x.style.display = "block";
         y = document.getElementById("principal");
         y.style.display = "none";
+        user = document.getElementById('username').value;
+        user.innerHTML="";
+        pass = document.getElementById('password').value;
+        pass.innerHTML="";
     } else alert("User o Password Invalido")
 }
 
@@ -145,6 +149,21 @@ function extraGasto(){
     generaGraficGastos()
     }else alert("Por favor ingresa los datos completos")
 }
+
+function extraIngreso(){
+    descripcion = document.getElementById("descIngreso").value;
+    cantidad = document.getElementById("cantIngreso").value;
+    recurrencia = document.getElementById("inputGroupSelect01Ingresos").value;
+    console.log(descripcion, cantidad, recurrencia)
+    if(descripcion!=0 && cantidad!=0){
+    var data = {id:ingresos.length+1, desc:descripcion, cant:cantidad, cat:"Comisiones", rec:recurrencia};
+    ingresos.push(data);
+    console.log(data)
+    listaIngreso()
+    generaGraficIngresos()
+    }else alert("Por favor ingresa los datos completos")
+}
+
 
 function generaGraficGastos(){
     x = document.getElementById("chartdivGastos");
