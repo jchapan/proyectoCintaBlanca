@@ -43,8 +43,8 @@ function reggas(reg)    {
         a = v + 1
         var desc = document.getElementById("descripcion").value;
         var cant = document.getElementById("cantidad").value;
-        // var cant = document.getElementById("categoria1").value;
-        // var cant = document.getElementById("recurrencia").value;
+        var cant = document.getElementById("categoria1").value;
+        var cant = document.getElementById("recurrencia").value;
         fila = `<tr><th> ${a}</th><td> ${desc}</td><td> ${cant}</td><td> `
         var btn = document.createElement("TR");
         btn.innerHTML=fila; 
