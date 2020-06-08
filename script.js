@@ -18,25 +18,23 @@ var recurrencia=0
 var gastos =[
     {id:1, desc:"Gas", cant:"1000", cat:"Servicios", rec:"Mensual"},
     {id:2, desc:"Colegiatura", cant:"20000", cat:"Colegiatura", rec:"Mensual"},
-    {id:3, desc:"Super", cant:"2000", cat:"Consumos", rec:"Semanal"},
-    {id:4, desc:"Luz", cant:"2000", cat:"Servicios", rec:"Mensual"}
+    {id:3, desc:"Super", cant:"15000", cat:"Consumos", rec:"Mensual"},
+    {id:4, desc:"Luz", cant:"2000", cat:"Servicios", rec:"Mensual"},
+    {id:5, desc:"Telefono", cant:"1000", cat:"Servicios", rec:"Mensual"},
+    {id:6, desc:"Celular", cant:"1000", cat:"Servicios", rec:"Mensual"},
+    {id:7, desc:"Tarjeta Banamex", cant:"5000", cat:"Consumos", rec:"Mensual"},
+    {id:8, desc:"Tarjeta Amex", cant:"7000", cat:"Consumos", rec:"Mensual"},
 ]
 
-var graficaGastos =[
-    {cant:"3000", cat:"Servicios"},
-    {cant:"20000", cat:"Colegiatura"},
-    {cant:"8000", cat:"Consumos"},
-]
 
-var graficaIngresos =[
-    {cant:"8000", cat:"Servicios"},
-    {cant:"50000", cat:"Sueldos"},
-    {cant:"100000", cat:"Comisiones"},
+var graficaBalance =[
+    {total:"52000", inGas:"Egresos"},
+    {total:"68000", inGas:"Ingresos"},
 ]
 
 var ingresos =[
     {id:1, desc:"Sueldo", cant:"50000", cat:"Sueldos", rec:"Mensual"},
-    {id:2, desc:"Comisiones", cant:"100000", cat:"Comisiones", rec:"Mensual"},
+    {id:2, desc:"Comisiones", cant:"10000", cat:"Comisiones", rec:"Mensual"},
     {id:3, desc:"Asesoria", cant:"8000", cat:"Servicios", rec:"No recurrente"}
 ]
 
@@ -144,50 +142,76 @@ function extraGasto(){
     gastos.push(data);
     console.log(data)
     listaGasto()
+    generaGraficGastos()
     }else alert("Por favor ingresa los datos completos")
 }
 
 function generaGraficGastos(){
     x = document.getElementById("chartdivGastos");
     x.style.display = "block";
+    
     am4core.ready(function() {
 
         // Themes begin
-        am4core.useTheme(am4themes_material);
+        am4core.useTheme(am4themes_frozen);
         am4core.useTheme(am4themes_animated);
         // Themes end
         
-        // Create chart instance
-        var chart = am4core.create("chartdivGastos", am4charts.PieChart);
+        var iconPath = "M53.5,476c0,14,6.833,21,20.5,21s20.5-7,20.5-21V287h21v189c0,14,6.834,21,20.5,21 c13.667,0,20.5-7,20.5-21V154h10v116c0,7.334,2.5,12.667,7.5,16s10.167,3.333,15.5,0s8-8.667,8-16V145c0-13.334-4.5-23.667-13.5-31 s-21.5-11-37.5-11h-82c-15.333,0-27.833,3.333-37.5,10s-14.5,17-14.5,31v133c0,6,2.667,10.333,8,13s10.5,2.667,15.5,0s7.5-7,7.5-13 V154h10V476 M61.5,42.5c0,11.667,4.167,21.667,12.5,30S92.333,85,104,85s21.667-4.167,30-12.5S146.5,54,146.5,42 c0-11.335-4.167-21.168-12.5-29.5C125.667,4.167,115.667,0,104,0S82.333,4.167,74,12.5S61.5,30.833,61.5,42.5z"
         
-        // Add data
-        chart.data = graficaGastos;
         
-        // Add and configure Series
-        var pieSeries = chart.series.push(new am4charts.PieSeries());
-        pieSeries.dataFields.value = "cant";
-        pieSeries.dataFields.category = "cat";
-        pieSeries.innerRadius = am4core.percent(50);
-        pieSeries.ticks.template.disabled = true;
-        pieSeries.labels.template.disabled = true;
         
-        var rgm = new am4core.RadialGradientModifier();
-        rgm.brightnesses.push(-0.8, -0.8, -0.5, 0, - 0.5);
-        pieSeries.slices.template.fillModifier = rgm;
-        pieSeries.slices.template.strokeModifier = rgm;
-        pieSeries.slices.template.strokeOpacity = 0.4;
-        pieSeries.slices.template.strokeWidth = 0;
+        var chart = am4core.create("chartdivGastos", am4charts.SlicedChart);
+        chart.hiddenState.properties.opacity = 0; // this makes initial fade in effect
+        
+        chart.data = gastos
+        
+        var series = chart.series.push(new am4charts.PictorialStackedSeries());
+        series.dataFields.value = "cant";
+        series.dataFields.category = "desc";
+        series.alignLabels = true;
+        
+        series.maskSprite.path = iconPath;
+        series.ticks.template.locationX = 1;
+        series.ticks.template.locationY = 0.5;
+        
+        series.labelsContainer.width = 200;
         
         chart.legend = new am4charts.Legend();
-        chart.legend.position = "right";
+        chart.legend.position = "left";
+        chart.legend.valign = "bottom";
         
         }); // end am4core.ready()
+
+        // // anychart
+        // anychart.onDocumentReady(function () {
+        //     // set chart theme
+        // anychart.theme('lightTurquoise');
+        //         // create pie chart with passed data
+        //         var chart = anychart.pie3d(graficaGastos);
+        
+        //         // set chart title text settings
+        //         chart
+        //           .title('Gastos')
+        //           // set chart radius
+        //           .radius('43%')
+        //           // create empty area in pie chart
+        //           .innerRadius('30%');
+        
+        //         // set container id for the chart
+        //         chart.container('containerAny');
+        //         // initiate chart drawing
+        //         chart.draw();
+        //       });
 }
 
-  am4core.ready(function() {
-  
+function generaGraficIngresos(){
+    x = document.getElementById("chartdivIngresos");
+    x.style.display = "block";
+    am4core.ready(function() {
+
     // Themes begin
-    am4core.useTheme(am4themes_frozen);
+    am4core.useTheme(am4themes_dark);
     am4core.useTheme(am4themes_animated);
     // Themes end
     
@@ -195,19 +219,63 @@ function generaGraficGastos(){
     var chart = am4core.create("chartdivIngresos", am4charts.PieChart);
     
     // Add data
-    chart.data = graficaIngresos;
+    chart.data = ingresos
     
     // Add and configure Series
     var pieSeries = chart.series.push(new am4charts.PieSeries());
     pieSeries.dataFields.value = "cant";
-    pieSeries.dataFields.category = "cat";
-    pieSeries.slices.template.stroke = am4core.color("#fff");
-    pieSeries.slices.template.strokeWidth = 2;
-    pieSeries.slices.template.strokeOpacity = 1;
+    pieSeries.dataFields.category = "desc";
+    pieSeries.innerRadius = am4core.percent(50);
+    pieSeries.ticks.template.disabled = true;
+    pieSeries.labels.template.disabled = false;
     
-    // This creates initial animation
-    pieSeries.hiddenState.properties.opacity = 1;
-    pieSeries.hiddenState.properties.endAngle = -90;
-    pieSeries.hiddenState.properties.startAngle = -90;
+    var rgm = new am4core.RadialGradientModifier();
+    rgm.brightnesses.push(-0.8, -0.8, -0.5, 0, - 0.5);
+    pieSeries.slices.template.fillModifier = rgm;
+    pieSeries.slices.template.strokeModifier = rgm;
+    pieSeries.slices.template.strokeOpacity = 0.4;
+    pieSeries.slices.template.strokeWidth = 0;
+    
+    chart.legend = new am4charts.Legend();
+    chart.legend.position = "right";
     
     }); // end am4core.ready()
+}
+
+function generaGraficBalance(){
+    x = document.getElementById("chartdivBalance");
+    x.style.display = "block";
+    am4core.ready(function() {
+
+        // Themes begin
+        am4core.useTheme(am4themes_frozen);
+        am4core.useTheme(am4themes_animated);
+        // Themes end
+        
+        var chart = am4core.create("chartdivBalance", am4charts.PieChart);
+        chart.hiddenState.properties.opacity = 0; // this creates initial fade-in
+        
+        chart.data = graficaBalance;
+
+        chart.radius = am4core.percent(70);
+        chart.innerRadius = am4core.percent(40);
+        chart.startAngle = 180;
+        chart.endAngle = 360;  
+        
+        var series = chart.series.push(new am4charts.PieSeries());
+        series.dataFields.value = "total";
+        series.dataFields.category = "inGas";
+        
+        series.slices.template.cornerRadius = 10;
+        series.slices.template.innerCornerRadius = 7;
+        series.slices.template.draggable = true;
+        series.slices.template.inert = true;
+        series.alignLabels = true;
+        
+        series.hiddenState.properties.startAngle = 90;
+        series.hiddenState.properties.endAngle = 90;
+        
+        chart.legend = new am4charts.Legend();
+        
+        }); // end am4core.ready()
+}
