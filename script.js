@@ -19,7 +19,7 @@ var gastos =[
     {id:1, desc:"Gas", cant:"1000", cat:"Servicios", rec:"Mensual"},
     {id:2, desc:"Colegiatura", cant:"20000", cat:"Colegiatura", rec:"Mensual"},
     {id:3, desc:"Super", cant:"2000", cat:"Consumos", rec:"Semanal"},
-    {id:3, desc:"Luz", cant:"2000", cat:"Servicios", rec:"Mensual"}
+    {id:4, desc:"Luz", cant:"2000", cat:"Servicios", rec:"Mensual"}
 ]
 
 var graficaGastos =[
