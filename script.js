@@ -448,3 +448,76 @@ function generaGraficBalance(){
         
         }); // end am4core.ready()
 }
+
+    function exportTableToExcel(tablabalance, filename = ''){
+    var downloadLink;
+    var dataType = 'application/vnd.ms-excel';
+    var tableSelect = gastos
+    // var tableSelect = document.getElementById(tablabalance);
+    var tableHTML = tableSelect.outerHTML.replace(/ /g, '%20');
+    
+    // Specify file name
+    filename = filename?filename+'.csv':'excel_data.csv';
+    
+    // Create download link element
+    downloadLink = document.createElement("a");
+    
+    document.body.appendChild(downloadLink);
+    
+    if(navigator.msSaveOrOpenBlob){
+        var blob = new Blob(['\ufeff', tableHTML], {
+            type: dataType
+        });
+        navigator.msSaveOrOpenBlob( blob, filename);
+    }else{
+        // Create a link to the file
+        downloadLink.href = 'data:' + dataType + ', ' + tableHTML;
+    
+        // Setting the file name
+        downloadLink.download = filename;
+        
+        //triggering the function
+        downloadLink.click();
+    }
+}
+asUtf16 = (str) ->
+  buffer = new ArrayBuffer(str.length * 2)
+  bufferView = new Uint16Array(buffer)
+  bufferView[0] = 0xfeff
+  for i in [0..str.length]
+    val = str.charCodeAt(i)
+    bufferView[i + 1] = val
+  bufferView
+
+
+makeExcelCsvBlob = (rows) ->  
+  new Blob([asUtf16(toTsv(rows)).buffer], {type: "text/csv;charset=UTF-16"})
+
+
+toTsv = (rows) ->
+  escapeValue = (val) ->
+    if typeof val is 'string'
+      '"' + val.replace(/"/g, '""') + '"'
+    else if val?
+      val
+    else
+      ''
+  rows.map((row) -> row.map(escapeValue).join('\t')).join('\n') + '\n'
+
+
+downloadExcelCsv = (rows, attachmentFilename) ->
+  blob = makeExcelCsvBlob(rows)  
+  a = document.createElement('a')
+  a.style.display = 'none'
+  a.download = attachmentFilename
+  document.body.appendChild(a)
+  a.href = URL.createObjectURL(blob)
+  a.click()
+  URL.revokeObjectURL(a.href)
+  a.remove()
+  return
+
+
+
+
+

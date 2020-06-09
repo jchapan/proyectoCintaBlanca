@@ -346,7 +346,7 @@
           <div class="card cardBalance">
              <div class="card-body">
         <h3>Balance</h3>
-        <table class="table">
+        <table class="table tablabalance" id="Atablabalance">
             <thead>
             <tr>
                 <th scope="col">#</th>
@@ -361,7 +361,12 @@
             </tbody>
         </table>
         <button type="submit" class="btn btn-primary botonImprimir" onclick="generaGraficBalance()">Grafica</button>
+        <button class="btn btn-primary botonImprimir" onclick="excelformat()">Exportar a Excel</button>
         <p id="totalBalance" class="totalBalance"></p>
+        <form action="javascript:sendMail();" name="pmForm" id="pmForm" method="post">
+          Enter Friend's Email:
+          <input name="pmSubject" id="pmSubject" type="text" maxlength="64" style="width:98%;" />
+          <input name="pmSubmit" type="submit" value="Enviar por email" />
         </div>
           </div>
         </div>
@@ -415,6 +420,7 @@
         </div>
       </div>
         <footer id="section6">
+          
 
 
         </footer>
