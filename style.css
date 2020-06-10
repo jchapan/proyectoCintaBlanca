@@ -1,9 +1,9 @@
 #section1 {padding-top:10px;}
-#section2 {padding-top:70px;}
-#section3 {padding-top:50px;}
-#section4 {padding-top:50px;}
-#section5 {padding-top:50px;}
-#section6 {padding-top:50px;}
+#section2 {padding-top:120px;}
+#section3 {padding-top:120px;}
+#section4 {padding-top:120px;}
+#section5 {padding-top:120px;}
+#section6 {padding-top:120px;}
 
 #privado {
     display: block;
@@ -12,6 +12,9 @@
 #principal {
     display: block;
     padding-top: 180px;
+}
+.formulario{
+    background-color: cornflowerblue;
 }
 
 .linea {

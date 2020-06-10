@@ -520,13 +520,13 @@ function generaGraficBalance(){
 // document.body.scrollTop > 20 && 
 window.onscroll = function() {scrollFunction()};
 function scrollFunction() {
-    if (document.documentElement.scrollTop > 40) {
+    if (document.body.scrollTop > 40 || document.documentElement.scrollTop > 40) {
       document.getElementById("navbar").style.padding = "10px 10px";
-      document.getElementById("logo").style.width = "100px";
+      document.getElementById("logo").style.width = "150px";
     } else {
       document.getElementById("navbar").style.padding = "5px 5px 0px 100px";
     //   document.getElementById("navbar").style.fontSize = "10px";
-      document.getElementById("logo").style.width = "150px";
+      document.getElementById("logo").style.width = "200px";
     }
   }
 //  
