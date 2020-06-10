@@ -6,15 +6,12 @@
 #section6 {padding-top:120px;}
 
 #privado {
-    display: block;
+    display: none;
 }
 
 #principal {
     display: block;
     padding-top: 180px;
-}
-.formulario{
-    background-color: cornflowerblue;
 }
 
 .linea {
@@ -91,8 +88,8 @@ h3{
 #chartdivGastos {
     width: 100%;
     height: 500px;
-    /* background-color: black;  */
-  }
+   
+}
 .chartdivGastos {
     display: none;
 }
@@ -100,7 +97,7 @@ h3{
 #chartdivIngresos {
     width: 100%;
     height: 500px;
-    /* background-color: black; */
+    background-color: #CEFEC1; 
 }
 .chartdivIngresos {
     display: none;
@@ -109,7 +106,7 @@ h3{
 #chartdivBalance {
     width: 100%;
     height: 500px;
-    /* background-color: black;  */
+    background-color: #a1cbff; 
 }
 .chartdivBalance {
     display: none;
@@ -141,7 +138,7 @@ header{
 }
   /* Create a sticky/fixed navbar */
 #navbar {
-  overflow: hidden;
+  /* overflow: hidden; */
   background-color: #072b4f;
   padding: 10px 0px 0px 100px; /* Large padding which will shrink on scroll (using JS) */
   transition: 0.4s; /* Adds a transition effect when the padding is decreased */
@@ -172,6 +169,10 @@ header{
   font-weight: bold; */
   /* width: 200px; */
   transition: 0.4s;
+}
+
+.paypal img{
+    float: right;
 }
 
 /* Links on mouse-over */
