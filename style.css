@@ -11,7 +11,7 @@
 
 #principal {
     display: block;
-    padding-top: 300px;
+    padding-top: 180px;
 }
 
 .linea {
@@ -19,7 +19,8 @@
     height: 50px;
 }
 #login{
-    margin-top: 5px;
+    margin-top: 0px;
+    border-radius: 180px;
 }
 .icono{
     margin-left: 20px;
@@ -32,16 +33,20 @@
     display: flex;
     justify-content: center;
 } */
-.logo img{
-    padding: 15px;
+/* #logo{
     height: auto;
-}
+} */
 .menu a{
     color: #6e6e6e;
     font-size: 24px;
 }
 .carousel-item{
-    max-width: 800px;
+    width: 600px;
+    float: center;
+}
+.imagenCarrusel{
+    width: 100%;
+    margin: 0 0 0 40%;
 }
 .carousel-control-prev-icon{
     background-color: #072b4f;
@@ -126,12 +131,14 @@ footer{
       width: 300px;
   }
 
-
+header{
+    background-color: #072b4f;
+}
   /* Create a sticky/fixed navbar */
 #navbar {
   overflow: hidden;
   background-color: #072b4f;
-  padding: 20px 10px; /* Large padding which will shrink on scroll (using JS) */
+  padding: 10px 0px 0px 100px; /* Large padding which will shrink on scroll (using JS) */
   transition: 0.4s; /* Adds a transition effect when the padding is decreased */
   position: fixed; /* Sticky/fixed navbar */
   /* width: 100%; */
@@ -139,14 +146,15 @@ footer{
   /* position: sticky; */
   top: 0; /* At the top */
   z-index: 99;
+  /* float: center; */
 }
 
 /* Style the navbar links */
 #navbar a {
-  float: none;
+  float: right;
   color: white;
   text-align: center;
-  padding: 12px;
+  padding: 10px;
   text-decoration: none;
   font-size: 18px;
   line-height: 15px;
@@ -175,7 +183,7 @@ footer{
 
 /* Display some links to the right */
 #navbar-right {
-  float: right;
+  float: center;
 }
 
 /* Add responsiveness - on screens less than 580px wide, display the navbar vertically instead of horizontally */

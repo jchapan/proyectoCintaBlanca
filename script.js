@@ -515,17 +515,18 @@ function generaGraficBalance(){
 //   a.click()
 //   URL.revokeObjectURL(a.href)
 //   a.remove()
-//   return document.body.scrollTop > 20 && 
+//   return 
 
-
+// document.body.scrollTop > 20 && 
 window.onscroll = function() {scrollFunction()};
 function scrollFunction() {
-    if (document.documentElement.scrollTop < 20) {
-      document.getElementById("navbar").style.padding = "40px 10px";
-      document.getElementById("logo").style.width = "150px";
+    if (document.documentElement.scrollTop > 40) {
+      document.getElementById("navbar").style.padding = "10px 10px";
+      document.getElementById("logo").style.width = "100px";
     } else {
-      document.getElementById("navbar").style.padding = "5px 5px";
-      document.getElementById("logo").style.width = "80px";
+      document.getElementById("navbar").style.padding = "5px 5px 0px 100px";
+    //   document.getElementById("navbar").style.fontSize = "10px";
+      document.getElementById("logo").style.width = "150px";
     }
   }
 //  
