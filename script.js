@@ -480,44 +480,52 @@ function generaGraficBalance(){
         downloadLink.click();
     }
 }
-asUtf16 = (str) ->
-  buffer = new ArrayBuffer(str.length * 2)
-  bufferView = new Uint16Array(buffer)
-  bufferView[0] = 0xfeff
-  for i in [0..str.length]
-    val = str.charCodeAt(i)
-    bufferView[i + 1] = val
-  bufferView
+// asUtf16 = (str) ->
+//   buffer = new ArrayBuffer(str.length * 2)
+//   bufferView = new Uint16Array(buffer)
+//   bufferView[0] = 0xfeff
+//   for i in [0..str.length]
+//     val = str.charCodeAt(i)
+//     bufferView[i + 1] = val
+//   bufferView
 
 
-makeExcelCsvBlob = (rows) ->  
-  new Blob([asUtf16(toTsv(rows)).buffer], {type: "text/csv;charset=UTF-16"})
+// makeExcelCsvBlob = (rows) ->  
+//   new Blob([asUtf16(toTsv(rows)).buffer], {type: "text/csv;charset=UTF-16"})
 
 
-toTsv = (rows) ->
-  escapeValue = (val) ->
-    if typeof val is 'string'
-      '"' + val.replace(/"/g, '""') + '"'
-    else if val?
-      val
-    else
-      ''
-  rows.map((row) -> row.map(escapeValue).join('\t')).join('\n') + '\n'
+// toTsv = (rows) ->
+//   escapeValue = (val) ->
+//     if typeof val is 'string'
+//       '"' + val.replace(/"/g, '""') + '"'
+//     else if val?
+//       val
+//     else
+//       ''
+//   rows.map((row) -> row.map(escapeValue).join('\t')).join('\n') + '\n'
 
 
-downloadExcelCsv = (rows, attachmentFilename) ->
-  blob = makeExcelCsvBlob(rows)  
-  a = document.createElement('a')
-  a.style.display = 'none'
-  a.download = attachmentFilename
-  document.body.appendChild(a)
-  a.href = URL.createObjectURL(blob)
-  a.click()
-  URL.revokeObjectURL(a.href)
-  a.remove()
-  return
+// downloadExcelCsv = (rows, attachmentFilename) ->
+//   blob = makeExcelCsvBlob(rows)  
+//   a = document.createElement('a')
+//   a.style.display = 'none'
+//   a.download = attachmentFilename
+//   document.body.appendChild(a)
+//   a.href = URL.createObjectURL(blob)
+//   a.click()
+//   URL.revokeObjectURL(a.href)
+//   a.remove()
+//   return document.body.scrollTop > 20 && 
 
 
-
-
-
+window.onscroll = function() {scrollFunction()};
+function scrollFunction() {
+    if (document.documentElement.scrollTop < 20) {
+      document.getElementById("navbar").style.padding = "40px 10px";
+      document.getElementById("logo").style.width = "150px";
+    } else {
+      document.getElementById("navbar").style.padding = "5px 5px";
+      document.getElementById("logo").style.width = "80px";
+    }
+  }
+//  
