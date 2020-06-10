@@ -521,14 +521,14 @@ function generaGraficBalance(){
 window.onscroll = function() {scrollFunction()};
 function scrollFunction() {
     if (document.body.scrollTop > 80 || document.documentElement.scrollTop < 80) {
-      document.getElementById("navbar").style.padding = "5px 5px 0 100px";
+    //   document.getElementById("navbar").style.padding = "5px 5px 0px 100px";
       document.getElementById("logo").style.width = "200px";
-      document.getElementById("navbar-right").style.padding = "5px 5px 0 0px";
+    //   document.getElementById("navbar-right").style.padding = "5px 5px 0 0px";
     } else {
-      document.getElementById("navbar").style.padding = "5px 5px 0px 50px";
+    //   document.getElementById("navbar").style.padding = "5px 5px 0px 50px";
     //   document.getElementById("navbar").style.fontSize = "10px";
       document.getElementById("logo").style.width = "100px";
-      document.getElementById("navbar-right").style.padding = "15px 20px 0 0px";
+    //   document.getElementById("navbar-right").style.padding = "15px 20px 0 0px";
     //   document.getElementById("navbar-right").style.fontSize = "15px";
     }
   }
