@@ -162,84 +162,7 @@ function revisaUser(){
         pass = document.getElementById('password').value;
         pass.innerHTML="";
     } else alert("User o Password Invalido")
-}
-
-// var reg = 0
-// var v = 0
-// var desc = 0
-// var cant = 0
-// var cate = 0
-// var recu = 0
-// var a = 0
-
-
-
-
-// function extraGasto(reg)    {
-
-   
-//         console.log(v);
-//         if (reg == 0) {}
-//         a = v + 1
-//         var desc = document.getElementById("descGasto").value;
-//         var cant = document.getElementById("cantGasto").value;
-//         // var cate = document.getElementById("tipodegasto").value;
-//         var recu = document.getElementById("inputGroupSelect01Gastos").value;
-//         // var cant = document.getElementById("gridRadios").value;
-//         // var cant = document.getElementById("recurrencia").value;
-//         fila = `<tr><th> ${a}</th><td> ${desc}</td><td> ${cant}</td><td><td> ${cate}</td><td><td>${recu}</td><td> `
-//         var btn = document.createElement("TR");
-//         btn.innerHTML=fila; 
-//             console.log(a)
-//             console.log(desc)
-//             console.log(cant)
-//             console.log(cate)
-//             console.log(recu)
-
-//             document.getElementById("tablaGastos").appendChild(btn);    
-
-        
-
-//     }   
-
-
-//     var regI = 0
-//     var w = 0
-//     var descI = 0
-//     var cantI = 0
-//     var cateI = 0
-//     var recuI = 0
-//     var b = 0    
-
-
-
-
-//     function extraIngreso(regI)    {
-
-   
-//         console.log(v);
-//         if (regI == 0) {}
-//         b = w + 1;
-//         var descI = document.getElementById("descGasto").value;
-//         var cantI = document.getElementById("cantGasto").value;
-//         // var cateI = document.getElementById("tipodeingreso").value;
-//         var recuI = document.getElementById("inputGroupSelect01Ingresos").value;
-//         // var cantI = document.getElementById("gridRadios").value;
-//         // var cantI = document.getElementById("recurrencia").value;
-//         fila = `<tr><th> ${a}</th><td> ${desc}</td><td> ${cant}</td><td><td> ${cate}</td><td><td>${recu}</td><td> `
-//         var btn = document.createElement("TR");
-//         btn.innerHTML=fila; 
-//             console.log(a)
-//             console.log(desc)
-//             console.log(cant)
-//             console.log(cate)
-//             console.log(recu)
-
-//             document.getElementById("tablaIngreso").appendChild(btn);    
-
-        
-
-//     }   
+} 
 
 
 function extraGasto(){
@@ -352,26 +275,6 @@ function generaGraficGastos(){
         
         }); // end am4core.ready()
 
-        // // anychart
-        // anychart.onDocumentReady(function () {
-        //     // set chart theme
-        // anychart.theme('lightTurquoise');
-        //         // create pie chart with passed data
-        //         var chart = anychart.pie3d(graficaGastos);
-        
-        //         // set chart title text settings
-        //         chart
-        //           .title('Gastos')
-        //           // set chart radius
-        //           .radius('43%')
-        //           // create empty area in pie chart
-        //           .innerRadius('30%');
-        
-        //         // set container id for the chart
-        //         chart.container('containerAny');
-        //         // initiate chart drawing
-        //         chart.draw();
-        //       });
 }
 
 function generaGraficIngresos(){
@@ -480,52 +383,15 @@ function generaGraficBalance(){
         downloadLink.click();
     }
 }
-// asUtf16 = (str) ->
-//   buffer = new ArrayBuffer(str.length * 2)
-//   bufferView = new Uint16Array(buffer)
-//   bufferView[0] = 0xfeff
-//   for i in [0..str.length]
-//     val = str.charCodeAt(i)
-//     bufferView[i + 1] = val
-//   bufferView
 
-
-// makeExcelCsvBlob = (rows) ->  
-//   new Blob([asUtf16(toTsv(rows)).buffer], {type: "text/csv;charset=UTF-16"})
-
-
-// toTsv = (rows) ->
-//   escapeValue = (val) ->
-//     if typeof val is 'string'
-//       '"' + val.replace(/"/g, '""') + '"'
-//     else if val?
-//       val
-//     else
-//       ''
-//   rows.map((row) -> row.map(escapeValue).join('\t')).join('\n') + '\n'
-
-
-// downloadExcelCsv = (rows, attachmentFilename) ->
-//   blob = makeExcelCsvBlob(rows)  
-//   a = document.createElement('a')
-//   a.style.display = 'none'
-//   a.download = attachmentFilename
-//   document.body.appendChild(a)
-//   a.href = URL.createObjectURL(blob)
-//   a.click()
-//   URL.revokeObjectURL(a.href)
-//   a.remove()
-//   return 
-
-// document.body.scrollTop > 20 && 
 window.onscroll = function() {scrollFunction()};
 function scrollFunction() {
     if (document.body.scrollTop > 80 || document.documentElement.scrollTop < 80) {
-    //   document.getElementById("navbar").style.padding = "5px 5px 0px 100px";
+      document.getElementById("navbar").style.padding = "5px 5px 0px 100px";
       document.getElementById("logo").style.width = "200px";
     //   document.getElementById("navbar-right").style.padding = "5px 5px 0 0px";
     } else {
-    //   document.getElementById("navbar").style.padding = "5px 5px 0px 50px";
+      document.getElementById("navbar").style.padding = "5px 5px 0px 50px";
     //   document.getElementById("navbar").style.fontSize = "10px";
       document.getElementById("logo").style.width = "100px";
     //   document.getElementById("navbar-right").style.padding = "15px 20px 0 0px";
